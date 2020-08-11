@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.decerto.dto.ActionType;
 import pl.decerto.dto.DataType;
 import pl.decerto.dto.RandomGeneratedDto;
-import pl.decerto.service.RandomIntService;
+import pl.decerto.service.RandomValuesService;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/random-api")
 public class RandomController {
 
-    private final RandomIntService randomIntService;
+    private final RandomValuesService randomValuesService;
 
     @GetMapping
     public ResponseEntity<RandomGeneratedDto> getRandomIntSum(@RequestParam(value = "from") Integer from, @RequestParam(value = "to") Integer to,
                                                               @RequestParam(value = "actionType") ActionType actionType,
                                                               @RequestParam(value = "dataType") DataType dataType) {
-        return ResponseEntity.status(HttpStatus.OK).body(randomIntService.getResult(from, to, actionType, dataType));
+        return ResponseEntity.status(HttpStatus.OK).body(randomValuesService.getResult(from, to, actionType, dataType));
     }
 
 }

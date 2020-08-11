@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -15,6 +14,6 @@ import java.util.List;
 public class RandomGeneratedDto {
 
     private ActionType actionType;
-    private List<Serializable> generatedValues;
     private Object result;
+    private List<Object> generatedValues;
 }
