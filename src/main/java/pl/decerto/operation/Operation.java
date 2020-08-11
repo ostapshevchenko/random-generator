@@ -1,5 +1,7 @@
 package pl.decerto.operation;
 
+import java.util.List;
+
 public interface Operation<T> {
-    T apply(T firstRandomObject, T secondRandomObject);
+    T apply(List<T> generatedValues);
 }

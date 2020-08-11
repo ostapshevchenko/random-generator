@@ -9,11 +9,10 @@ import java.util.List;
 
 public class RandomGeneratorMapper {
 
-    public static RandomGeneratedDto mapToRandomGeneratedDto(List<Serializable> randomNumbers, ActionType actionType, Operation operation) {
-        return randomNumbers.size() == 2 ? RandomGeneratedDto.builder()
-                .firstGeneratedValue(randomNumbers.get(0))
-                .secondGeneratedValue(randomNumbers.get(1))
-                .result(operation.apply(randomNumbers.get(0), randomNumbers.get(1)))
+    public static RandomGeneratedDto mapToRandomGeneratedDto(List<Serializable> generatedValues, ActionType actionType, Operation operation) {
+        return generatedValues.size() == 2 ? RandomGeneratedDto.builder()
+                .generatedValues(generatedValues)
+                .result(operation.apply(generatedValues))
                 .actionType(actionType)
                 .build() :
                 new RandomGeneratedDto();
